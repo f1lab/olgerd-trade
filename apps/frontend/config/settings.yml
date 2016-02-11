@@ -35,3 +35,10 @@ all:
     use_database:           true
 
     standard_helpers:       [Partial, Cache, Text, I18N]
+    enabled_modules:        [default, sfGuardAuth]
+
+    login_module:           sfGuardAuth
+    login_action:           signin
+
+    secure_module:          sfGuardAuth
+    secure_action:          secure
