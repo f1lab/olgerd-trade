@@ -12,5 +12,13 @@ class GoodForm extends BaseGoodForm
 {
   public function configure()
   {
+    unset (
+      $this['created_at']
+      , $this['updated_at']
+      , $this['created_by']
+      , $this['updated_by']
+      , $this['deleted_at']
+      , $this['version']
+    );
   }
 }
