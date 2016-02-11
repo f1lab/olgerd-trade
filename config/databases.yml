@@ -5,6 +5,10 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=localhost;dbname=trade
-      username: root
-      password: 
+      dsn: 'pgsql:host=localhost;port=5432;dbname=trade'
+      username: postgres
+      password: z123b15
+      attributes:
+        quote_identifier:  true
+        use_native_enum:   true
+        use_dql_callbacks: true
