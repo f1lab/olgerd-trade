@@ -25,6 +25,3 @@
     <?php endif ?>
   </div>
 </form>
-
-<script src="/js/tiny-mce/tiny_mce.js"></script>
-<script src="/js/go-tiny-mce.js"></script>

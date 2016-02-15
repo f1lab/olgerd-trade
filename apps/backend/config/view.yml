@@ -20,6 +20,8 @@ default:
   javascripts:
     - "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
     - bootstrap.min.js
+    - tiny-mce/tiny_mce
+    - go-tiny-mce
     - main
 
   has_layout:     true

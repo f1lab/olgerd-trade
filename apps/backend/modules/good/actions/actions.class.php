@@ -18,6 +18,12 @@ class goodActions extends sfActions
     ;
   }
 
+  public function executeShow(sfWebRequest $request)
+  {
+    $this->good = Doctrine_Core::getTable('Good')->find(array($request->getParameter('id')));
+    $this->forward404Unless($this->good);
+  }
+
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new GoodForm();

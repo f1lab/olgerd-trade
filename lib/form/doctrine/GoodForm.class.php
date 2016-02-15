@@ -20,5 +20,7 @@ class GoodForm extends BaseGoodForm
       , $this['deleted_at']
       , $this['version']
     );
+
+    $this->getWidgetSchema()->offsetGet('description')->setAttribute('class', 'wysiwyg');
   }
 }

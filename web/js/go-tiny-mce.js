@@ -1,6 +1,8 @@
 	tinyMCE.init({
 		// General options
-		mode : "textareas",
+		mode : "specific_textareas",
+    editor_selector : "wysiwyg",
+
 		theme : "advanced",
 		plugins : "imagemanager,table",//autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
 
@@ -14,7 +16,7 @@
 		theme_advanced_toolbar_align : "left",
 		theme_advanced_statusbar_location : "bottom",
 		theme_advanced_resizing : true,
-		
+
 		extended_valid_elements : 'iframe[src|style|width|height|scrolling|marginwidth|marginheight|frameborder],div[*],p[*],span[*],object[width|height|classid|codebase|embed|param],param[name|value],embed[param|src|type|width|height|flashvars|wmode]',
 
     setup: function(ed) {
