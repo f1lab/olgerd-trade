@@ -1,15 +1,18 @@
-<?php slot('title', 'Show Good') ?>
+<?php slot('title', 'Товар: ' . $good->getName()) ?>
 
 <h1 class="page-header">
-  Show Good
+  Товар: <?php echo $good->getName() ?>
 </h1>
 
 <div class="btn-toolbar">
   <div class="btn-group">
-    <a href="<?php echo url_for('good/edit?id='.$good->getId()) ?>" class="btn btn-primary">Edit</a>
+    <a href="<?php echo url_for('good/edit?id='.$good->getId()) ?>" class="btn btn-primary">Редактировать описание</a>
   </div>
   <div class="btn-group">
-    <a href="<?php echo url_for('good/index') ?>" class="btn">Back to List</a>
+    <a href="<?php echo url_for('good/edit?id='.$good->getId()) ?>" class="btn btn-primary">Редактировать фотографии</a>
+  </div>
+  <div class="btn-group">
+    <a href="<?php echo url_for('good/index') ?>" class="btn">Назад к списку</a>
   </div>
 </div>
 

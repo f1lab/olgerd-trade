@@ -26,6 +26,12 @@ Good:
       local: dimension_id
       foreign: id
       foreignAlias: Goods
+    Images:
+      class: Image
+      local: id
+      foreign: good_id
+      type: many
+      foreignType: one
 
 Dimension:
   actAs:
@@ -34,6 +40,19 @@ Dimension:
     - SoftDelete
     - Versionable
   columns:
+    name:
+      type: string(255)
+      notnull: true
+
+Image:
+  actAs:
+    - Signable
+    - Timestampable
+    - SoftDelete
+  columns:
+    good_id:
+      type: integer
+      notnull: true
     name:
       type: string(255)
       notnull: true
