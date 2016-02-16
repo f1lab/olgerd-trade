@@ -7,7 +7,6 @@
   <title><?php include_slot('title') ?></title>
   <link rel="shortcut icon" href="/favicon.ico" />
   <?php include_stylesheets() ?>
-  <?php include_javascripts() ?>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -50,6 +49,8 @@
       Powered by <a href="http://github.com/b1rdex/symfony1">Symfony 1.4 "slowpoke" edition</a>
     </div>
   </footer>
+
+  <?php include_javascripts() ?>
 </body>
 
 </html>

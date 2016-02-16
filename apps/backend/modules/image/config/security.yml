@@ -1,0 +1,8 @@
+new:
+  credentials: [[can_create_images]]
+
+edit:
+  credentials: [[can_edit_images]]
+
+delete:
+  credentials: [[can_delete_images]]

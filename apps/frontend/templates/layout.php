@@ -7,7 +7,6 @@
   <title><?php include_slot('title') ?></title>
   <link rel="shortcut icon" href="/favicon.ico" />
   <?php include_stylesheets() ?>
-  <?php include_javascripts() ?>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -47,6 +46,8 @@
     <div class="container" style="padding-top: 7em">
     </div>
   </footer>
+
+  <?php include_javascripts() ?>
 </body>
 
 </html>

@@ -15,6 +15,7 @@ default:
 
   stylesheets:
     - bootstrap
+    - lightbox.min.css
     - main
 
   javascripts:
@@ -22,6 +23,7 @@ default:
     - bootstrap.min.js
     - tiny-mce/tiny_mce
     - go-tiny-mce
+    - lightbox.min.js
     - main
 
   has_layout:     true

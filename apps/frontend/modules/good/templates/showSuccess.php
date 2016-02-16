@@ -12,6 +12,14 @@
   </div>
 </div>
 
+<ul class="thumbnails"><?php foreach ($good->getImages() as $image): ?>
+  <li class="span2">
+    <a href="/uploads/goods/<?php echo $image ?>" class="thumbnail" data-lightbox="good">
+      <img src="/uploads/goods/<?php echo $image ?>" alt="">
+    </a>
+  </li>
+<?php endforeach ?></ul>
+
 <table class="table table-condensed table-bordered">
   <tbody>
     <tr>

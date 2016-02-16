@@ -15,11 +15,13 @@ default:
 
   stylesheets:
     - bootstrap
+    - lightbox.min.css
     - main
 
   javascripts:
     - "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
     - bootstrap.min.js
+    - lightbox.min.js
     - main
 
   has_layout:     true
