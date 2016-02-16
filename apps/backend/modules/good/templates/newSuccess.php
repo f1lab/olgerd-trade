@@ -1,7 +1,7 @@
-<?php slot('title', 'New Good') ?>
+<?php slot('title', 'Добавить товар') ?>
 
 <h1 class="page-header">
-  New Good
+  Добавить товар
 </h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

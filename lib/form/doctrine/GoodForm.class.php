@@ -21,7 +21,18 @@ class GoodForm extends BaseGoodForm
       , $this['version']
     );
 
-    $this->getWidgetSchema()->offsetGet('description')->setAttribute('class', 'wysiwyg');
+    $this->getWidgetSchema()
+      ->offsetGet('description')
+        ->setAttribute('class', 'wysiwyg')
+      ->getParent()
+      ->setLabels([
+        'name' => 'Наименование',
+        'dimension_id' => 'Размерность',
+        'price' => 'Цена',
+        'amount' => 'Количество',
+        'description' => 'Описание',
+      ])
+    ;
 
     if ($this->getObject()->isNew() || $this->getOption('fakeNew', false)) {
       $this->getWidgetSchema()->offsetSet('images', new sfWidgetFormInputFile([

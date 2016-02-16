@@ -1,7 +1,7 @@
-<?php slot('title', 'Goods List') ?>
+<?php slot('title', 'Товары') ?>
 
 <h1 class="page-header">
-  Goods List
+  Товары
 </h1>
 
 <div class="btn-toolbar">

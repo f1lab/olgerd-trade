@@ -1,7 +1,7 @@
-<?php slot('title', 'Edit Good') ?>
+<?php slot('title', 'Редактировать описание') ?>
 
 <h1 class="page-header">
-  Edit Good
+  Редактировать описание
 </h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

@@ -1,7 +1,7 @@
-<?php slot('title', 'Товар: ' . $good->getName()) ?>
+<?php slot('title', $good->getName()) ?>
 
 <h1 class="page-header">
-  Товар: <?php echo $good->getName() ?>
+  <?php echo $good->getName() ?>
 </h1>
 
 <div class="btn-toolbar">
@@ -29,44 +29,24 @@
       <td><?php echo $good->getId() ?></td>
     </tr>
     <tr>
-      <th scope="row" class="span3">Name:</th>
+      <th scope="row" class="span3">Наименование:</th>
       <td><?php echo $good->getName() ?></td>
     </tr>
     <tr>
-      <th scope="row" class="span3">Dimension:</th>
-      <td><?php echo $good->getDimensionId() ?></td>
+      <th scope="row" class="span3">Размерность:</th>
+      <td><?php echo $good->getDimension() ?></td>
     </tr>
     <tr>
-      <th scope="row" class="span3">Price:</th>
+      <th scope="row" class="span3">Цена:</th>
       <td><?php echo $good->getPrice() ?></td>
     </tr>
     <tr>
-      <th scope="row" class="span3">Amount:</th>
+      <th scope="row" class="span3">Количество:</th>
       <td><?php echo $good->getAmount() ?></td>
     </tr>
     <tr>
-      <th scope="row" class="span3">Description:</th>
-      <td><?php echo $sf_data->getRaw('good')->getDescription() ?></td>
-    </tr>
-    <tr>
-      <th scope="row" class="span3">Created by:</th>
-      <td><?php echo $good->getCreatedBy() ?></td>
-    </tr>
-    <tr>
-      <th scope="row" class="span3">Updated by:</th>
-      <td><?php echo $good->getUpdatedBy() ?></td>
-    </tr>
-    <tr>
-      <th scope="row" class="span3">Created at:</th>
-      <td><?php echo $good->getCreatedAt() ?></td>
-    </tr>
-    <tr>
-      <th scope="row" class="span3">Updated at:</th>
-      <td><?php echo $good->getUpdatedAt() ?></td>
-    </tr>
-    <tr>
-      <th scope="row" class="span3">Deleted at:</th>
-      <td><?php echo $good->getDeletedAt() ?></td>
+      <th scope="row" class="span3">Описание:</th>
+      <td><?php echo $good->getRawValue()->getDescription() ?></td>
     </tr>
   </tbody>
 </table>

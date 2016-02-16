@@ -1,7 +1,7 @@
-<?php slot('title', 'Images List') ?>
+<?php slot('title', 'Изображения') ?>
 
 <h1 class="page-header">
-  Images List
+  Изображения
 </h1>
 
 <div class="btn-toolbar">
@@ -28,7 +28,7 @@
         </a>
 
         <p class="caption">
-          <a href="<?php echo url_for('image/default?id=' . $image->getId()) ?>" class="btn btn-primary">Сделать главной</a>
+          <a href="<?php echo url_for('image/default?id=' . $image->getId()) ?>" class="btn btn-primary">Сделать главным</a>
           <?php echo link_to('Удалить', 'image/delete?id=' . $image->getId(), array(
             'method' => 'delete',
             'confirm' => 'Are you sure?',
