@@ -16,13 +16,11 @@
   </div>
 </div>
 
-<ul class="thumbnails"><?php foreach ($good->getImages() as $image): ?>
+<a href="<?php echo url_for('image/index?good_id='.$good->getId()) ?>"><ul class="thumbnails"><?php foreach ($good->getImages() as $image): ?>
   <li class="span2">
-    <a href="/uploads/goods/<?php echo $image ?>" class="thumbnail" data-lightbox="good">
-      <img src="/uploads/goods/<?php echo $image ?>" alt="">
-    </a>
+    <img src="/uploads/goods/<?php echo $image ?>" alt="" class="thumbnail">
   </li>
-<?php endforeach ?></ul>
+<?php endforeach ?></ul></a>
 
 <table class="table table-condensed table-bordered">
   <tbody>

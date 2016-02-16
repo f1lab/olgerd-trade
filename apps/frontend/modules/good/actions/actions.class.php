@@ -14,13 +14,21 @@ class goodActions extends sfActions
   {
     $this->goods = Doctrine_Query::create()
       ->from('Good g')
+      ->leftJoin('g.Images i')
+      ->addOrderBy('i.is_default desc')
       ->execute()
     ;
   }
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->good = Doctrine_Core::getTable('Good')->find(array($request->getParameter('id')));
+    $this->good = Doctrine_Query::create()
+      ->from('Good g')
+      ->leftJoin('g.Images i')
+      ->addOrderBy('i.is_default desc')
+      ->addWhere('g.id = ?', $request->getParameter('id'))
+      ->fetchOne()
+    ;
     $this->forward404Unless($this->good);
   }
 

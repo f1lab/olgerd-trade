@@ -6,33 +6,39 @@
 
 <div class="btn-toolbar">
   <div class="btn-group">
-    <a href="<?php echo url_for('image/new') ?>" class="btn btn-primary">New</a>
+    <a href="<?php echo url_for('good/show?id=' . $goodId) ?>" class="btn">Назад к товару</a>
   </div>
 </div>
 
-<table class="table table-condensed table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Good</th>
-      <th>Name</th>
-      <th>Created by</th>
-      <th>Updated by</th>
-      <th>Created at</th>
-      <th>Updated at</th>
-      <th>Deleted at</th>
-    </tr>
-  </thead>
-  <tbody><?php foreach ($images as $image): ?>
-    <tr>
-      <td><a href="<?php echo url_for('image/edit?id='.$image->getId()) ?>"><?php echo $image->getId() ?></a></td>
-      <td><?php echo $image->getGoodId() ?></td>
-      <td><?php echo $image->getName() ?></td>
-      <td><?php echo $image->getCreatedBy() ?></td>
-      <td><?php echo $image->getUpdatedBy() ?></td>
-      <td><?php echo $image->getCreatedAt() ?></td>
-      <td><?php echo $image->getUpdatedAt() ?></td>
-      <td><?php echo $image->getDeletedAt() ?></td>
-    </tr>
-  <?php endforeach; ?></tbody>
-</table>
+<form class="well" action="<?php echo url_for('image/upload?good_id=' . $goodId)?>"
+  method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+
+  <?php echo $form['images']->renderRow() ?>
+  <?php echo $form->renderHiddenFields() ?>
+
+  <button type="submit" class="btn btn-primary">Загрузить</button>
+</form>
+
+<?php if (count($images)): ?>
+  <ul class="thumbnails"><?php foreach ($images as $image): ?>
+    <li class="span4">
+      <div class="thumbnail">
+        <a href="/uploads/goods/<?php echo $image ?>" data-lightbox="good">
+          <img src="/uploads/goods/<?php echo $image ?>" alt="">
+        </a>
+
+        <p class="caption">
+          <a href="<?php echo url_for('image/default?id=' . $image->getId()) ?>" class="btn btn-primary">Сделать главной</a>
+          <?php echo link_to('Удалить', 'image/delete?id=' . $image->getId(), array(
+            'method' => 'delete',
+            'confirm' => 'Are you sure?',
+            'class' => 'btn',
+          )) ?>
+        </p>
+      </div>
+    </li>
+  <?php endforeach ?></ul>
+<?php else: ?>
+  <div class="alert">Ещё нет изображений.</div>
+<?php endif ?>
+

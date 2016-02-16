@@ -10,21 +10,15 @@
   </div>
 </div>
 
-<table class="table table-condensed table-bordered table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Наименование</th>
-      <th>Цена</th>
-      <th>Количество</th>
-    </tr>
-  </thead>
-  <tbody><?php foreach ($goods as $good): ?>
-    <tr>
-      <td><a href="<?php echo url_for('good/show?id='.$good->getId()) ?>"><?php echo $good->getId() ?></a></td>
-      <td><a href="<?php echo url_for('good/show?id='.$good->getId()) ?>"><?php echo $good->getName() ?></a></td>
-      <td><?php echo $good->getPrice() ?></td>
-      <td><?php echo $good->getAmount() ?></td>
-    </tr>
-  <?php endforeach; ?></tbody>
-</table>
+<ul class="media-list"><?php foreach ($goods as $good): ?>
+  <li class="media">
+    <a class="pull-left" href="<?php echo url_for('good/show?id='.$good->getId()) ?>">
+      <img class="media-object" src="/uploads/goods/<?php echo $good->getImages()->getFirst() ?: 'default.png' ?>" style="max-width: 128px">
+    </a>
+    <div class="media-body">
+      <a href="<?php echo url_for('good/show?id='.$good->getId()) ?>">
+        <h4 class="media-heading"><?php echo $good->getName() ?></h4>
+      </a>
+    </div>
+  </li>
+<?php endforeach; ?></ul>

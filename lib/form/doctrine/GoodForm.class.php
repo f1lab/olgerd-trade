@@ -23,8 +23,14 @@ class GoodForm extends BaseGoodForm
 
     $this->getWidgetSchema()->offsetGet('description')->setAttribute('class', 'wysiwyg');
 
-    if ($this->getObject()->isNew()) {
-      $this->getWidgetSchema()->offsetSet('images', new sfWidgetFormInputFile([], ['multiple' => true, 'accept' => 'image/*', 'name' => 'images[]']));
+    if ($this->getObject()->isNew() || $this->getOption('fakeNew', false)) {
+      $this->getWidgetSchema()->offsetSet('images', new sfWidgetFormInputFile([
+        'label' => 'Загрузить изображения',
+      ], [
+        'multiple' => true,
+        'accept' => 'image/*',
+        'name' => 'images[]',
+      ]));
     }
   }
 

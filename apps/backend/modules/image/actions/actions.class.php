@@ -10,45 +10,23 @@
  */
 class imageActions extends sfActions
 {
+  public function preExecute()
+  {
+    $this->goodId = $this->getRequest()->getParameter('good_id');
+  }
+
   public function executeIndex(sfWebRequest $request)
   {
     $this->images = Doctrine_Query::create()
       ->from('Image i')
+      ->addWhere('i.good_id = ?', $this->goodId)
+      ->addOrderBy('i.is_default desc')
       ->execute()
     ;
-  }
 
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->form = new ImageForm();
-  }
-
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
-
-    $this->form = new ImageForm();
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('new');
-  }
-
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($image = Doctrine_Core::getTable('Image')->find(array($request->getParameter('id'))), sprintf('Object image does not exist (%s).', $request->getParameter('id')));
-    $this->form = new ImageForm($image);
-  }
-
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($image = Doctrine_Core::getTable('Image')->find(array($request->getParameter('id'))), sprintf('Object image does not exist (%s).', $request->getParameter('id')));
-    $this->form = new ImageForm($image);
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('edit');
+    $good = Doctrine_Core::getTable('Good')->find(array($this->goodId));
+    $this->form = new GoodForm($good, ['fakeNew' => true]);
+    $this->form->useFields(['images']);
   }
 
   public function executeDelete(sfWebRequest $request)
@@ -58,16 +36,42 @@ class imageActions extends sfActions
     $this->forward404Unless($image = Doctrine_Core::getTable('Image')->find(array($request->getParameter('id'))), sprintf('Object image does not exist (%s).', $request->getParameter('id')));
     $image->delete();
 
-    $this->redirect('image/index');
+    $this->redirect('image/index?good_id=' . $image->getGoodId());
   }
 
-  protected function processForm(sfWebRequest $request, sfForm $form)
+  public function executeDefault(sfWebRequest $request)
   {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid()) {
-      $image = $form->save();
+    $this->forward404Unless($image = Doctrine_Core::getTable('Image')->find(array($request->getParameter('id'))), sprintf('Object image does not exist (%s).', $request->getParameter('id')));
 
-      $this->redirect('image/edit?id='.$image->getId());
+    Doctrine_Query::create()
+      ->update('Image i')
+      ->set('i.is_default', '?', false)
+      ->addWhere('i.good_id = ?', $image->getGoodId())
+      ->execute()
+    ;
+
+    $image
+      ->setIsDefault(true)
+      ->save()
+    ;
+
+    $this->redirect('image/index?good_id=' . $image->getGoodId());
+  }
+
+  public function executeUpload(sfWebRequest $request)
+  {
+    $this->setTemplate('index');
+    $this->executeIndex($request);
+
+    $good = Doctrine_Core::getTable('Good')->find(array($this->goodId));
+    $this->form = new GoodForm($good, ['fakeNew' => true]);
+    $this->form->useFields(['images']);
+
+    $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+    if ($this->form->isValid()) {
+      $good = $this->form->save();
+
+      $this->redirect('image/index?good_id=' . $good->getId());
     }
   }
 }

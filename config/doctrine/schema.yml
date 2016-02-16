@@ -56,3 +56,7 @@ Image:
     name:
       type: string(255)
       notnull: true
+    is_default:
+      type: boolean
+      notnull: true
+      default: false
