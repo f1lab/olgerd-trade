@@ -18,6 +18,9 @@ Good:
     amount:
       type: integer
       notnull: true
+    introduction:
+      type: clob
+      notnull: true
     description:
       type: clob
       notnull: true

@@ -35,6 +35,10 @@
       <td><?php echo $good->getAmount() ?></td>
     </tr>
     <tr>
+      <th scope="row" class="span3">Краткое описание:</th>
+      <td><?php echo nl2br($good->getIntroduction()) ?></td>
+    </tr>
+    <tr>
       <th scope="row" class="span3">Описание:</th>
       <td><?php echo $good->getRawValue()->getDescription() ?></td>
     </tr>

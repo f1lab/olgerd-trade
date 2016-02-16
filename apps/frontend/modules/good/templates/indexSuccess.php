@@ -18,6 +18,7 @@
       <a href="<?php echo url_for('good/show?id='.$good->getId()) ?>">
         <h4 class="media-heading"><?php echo $good->getName() ?></h4>
       </a>
+      <p><?php echo nl2br($good->getIntroduction()) ?></p>
     </div>
   </li>
 <?php endforeach; ?></ul>

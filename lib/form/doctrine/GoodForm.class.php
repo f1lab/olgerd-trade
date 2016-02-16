@@ -30,6 +30,7 @@ class GoodForm extends BaseGoodForm
         'dimension_id' => 'Размерность',
         'price' => 'Цена',
         'amount' => 'Количество',
+        'introduction' => 'Краткое описание',
         'description' => 'Описание',
       ])
     ;
