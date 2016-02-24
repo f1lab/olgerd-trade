@@ -27,6 +27,7 @@ class GoodForm extends BaseGoodForm
       ->getParent()
       ->setLabels([
         'name' => 'Наименование',
+        'category_id' => 'Категория',
         'dimension_id' => 'Размерность',
         'price' => 'Цена',
         'amount' => 'Количество',

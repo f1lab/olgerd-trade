@@ -8,6 +8,8 @@ Good:
     name:
       type: string(255)
       notnull: true
+    category_id:
+      type: integer
     dimension_id:
       type: integer
       notnull: true
@@ -25,6 +27,10 @@ Good:
       type: clob
       notnull: true
   relations:
+    Category:
+      local: category_id
+      foreign: id
+      foreignAlias: Goods
     Dimension:
       local: dimension_id
       foreign: id
@@ -63,3 +69,15 @@ Image:
       type: boolean
       notnull: true
       default: false
+
+Category:
+  actAs:
+    - Signable
+    - Timestampable
+    - SoftDelete
+  columns:
+    name:
+      type: string(255)
+      notnull: true
+    image:
+      type: string(255)
