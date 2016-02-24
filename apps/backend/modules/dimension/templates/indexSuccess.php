@@ -1,12 +1,12 @@
-<?php slot('title', 'Dimensions List') ?>
+<?php slot('title', 'Размерности') ?>
 
 <h1 class="page-header">
-  Dimensions List
+  Размерности
 </h1>
 
 <div class="btn-toolbar">
   <div class="btn-group">
-    <a href="<?php echo url_for('dimension/new') ?>" class="btn btn-primary">New</a>
+    <a href="<?php echo url_for('dimension/new') ?>" class="btn btn-primary">Добавить</a>
   </div>
 </div>
 

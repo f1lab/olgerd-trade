@@ -19,5 +19,10 @@ class CategoryForm extends BaseCategoryForm
       , $this['updated_by']
       , $this['deleted_at']
     );
+
+    $this->getWidgetSchema()->setLabels([
+      'name' => 'Наименование',
+      'image' => 'Изображение',
+    ]);
   }
 }

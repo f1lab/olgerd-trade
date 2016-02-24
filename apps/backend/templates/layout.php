@@ -19,8 +19,9 @@
         <a href="<?php echo url_for('@homepage') ?>" class="brand"><?php echo $_SERVER['SERVER_NAME'] ?></a>
 
         <ul class="nav">
-          <li><a href="<?php echo url_for('dimension/index') ?>">Размерности</a></li>
           <li><a href="<?php echo url_for('good/index') ?>">Товары</a></li>
+          <li><a href="<?php echo url_for('category/index') ?>">Категории</a></li>
+          <li><a href="<?php echo url_for('dimension/index') ?>">Размерности</a></li>
         </ul>
 
         <ul class="nav pull-right"><?php if ($sf_user->isAuthenticated()): ?>

@@ -1,7 +1,7 @@
-<?php slot('title', 'Edit Dimension') ?>
+<?php slot('title', 'Редактировать размерность') ?>
 
 <h1 class="page-header">
-  Edit Dimension
+  Редактировать размерность
 </h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

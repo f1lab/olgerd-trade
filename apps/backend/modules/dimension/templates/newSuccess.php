@@ -1,7 +1,7 @@
-<?php slot('title', 'New Dimension') ?>
+<?php slot('title', 'Добавить размерность') ?>
 
 <h1 class="page-header">
-  New Dimension
+  Добавить размерность
 </h1>
 
 <?php include_partial('form', array('form' => $form)) ?>
