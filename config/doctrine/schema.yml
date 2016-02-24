@@ -79,5 +79,13 @@ Category:
     name:
       type: string(255)
       notnull: true
+    parent_id:
+      type: integer
     image:
       type: string(255)
+  relations:
+    Parent:
+      class: Category
+      local: parent_id
+      foreign: id
+      foreignAlias: Children

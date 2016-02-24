@@ -18,12 +18,6 @@ class goodActions extends sfActions
       ->addOrderBy('i.is_default desc')
     ;
 
-    if ((int)$request->getParameter('category_id', 0) === 0) {
-      $query->addWhere('g.category_id is null');
-    } else {
-      $query->addWhere('g.category_id = ?', $request->getParameter('category_id'));
-    }
-
     $this->goods = $query->execute();
   }
 

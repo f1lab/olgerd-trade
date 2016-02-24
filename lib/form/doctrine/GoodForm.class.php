@@ -25,6 +25,11 @@ class GoodForm extends BaseGoodForm
       ->offsetGet('description')
         ->setAttribute('class', 'wysiwyg')
       ->getParent()
+      ->offsetSet('category_id', new sfWidgetFormDoctrineChoice([
+        'model' => 'Category',
+        'method' => 'getFullName',
+        'order_by' => ['parent_id desc, name', '']
+      ]))
       ->setLabels([
         'name' => 'Наименование',
         'category_id' => 'Категория',

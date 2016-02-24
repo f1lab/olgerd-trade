@@ -7,7 +7,7 @@
 <ul class="thumbnails"><?php foreach ($categorys as $category): ?>
   <li class="span2">
     <div class="thumbnail">
-      <a href="<?php echo url_for('good/index?category_id=' . $category->getId()) ?>">
+      <a href="<?php echo url_for('category/show?id=' . $category->getId()) ?>">
         <img src="/uploads/goods/default.png<?php //echo $category ?>" alt="">
       </a>
 
@@ -16,18 +16,4 @@
       </div>
     </div>
   </li>
-<?php endforeach ?>
-
-  <li class="span2">
-    <div class="thumbnail">
-      <a href="<?php echo url_for('good/index') ?>">
-        <img src="/uploads/goods/default.png<?php //echo $category ?>" alt="">
-      </a>
-
-      <div class="caption">
-        <h4>Без категории</h4>
-      </div>
-    </div>
-  </li>
-
-</ul>
+<?php endforeach ?></ul>

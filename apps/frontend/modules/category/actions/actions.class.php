@@ -14,6 +14,7 @@ class categoryActions extends sfActions
   {
     $this->categorys = Doctrine_Query::create()
       ->from('Category c')
+      ->addWhere('c.parent_id is null')
       ->execute()
     ;
   }

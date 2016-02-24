@@ -20,7 +20,12 @@
   <tbody><?php foreach ($categorys as $category): ?>
     <tr>
       <td><a href="<?php echo url_for('category/edit?id='.$category->getId()) ?>"><?php echo $category->getId() ?></a></td>
-      <td><?php echo $category->getName() ?></td>
+      <td>
+        <?php echo $category->getName() ?>
+        <ul><?php foreach ($category->getChildren() as $child): ?>
+          <li><?php echo $child ?></li>
+        <?php endforeach ?></ul>
+      </td>
     </tr>
   <?php endforeach; ?></tbody>
 </table>

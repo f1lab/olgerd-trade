@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang="ru-RU">
 <head>
   <meta charset="UTF-8">
   <?php include_http_metas() ?>
@@ -19,6 +19,7 @@
         <a href="<?php echo url_for('@homepage') ?>" class="brand"><?php echo $_SERVER['SERVER_NAME'] ?></a>
 
         <ul class="nav">
+          <div id="google_translate_element"></div>
         </ul>
 
         <ul class="nav pull-right"><?php if ($sf_user->isAuthenticated()): ?>
@@ -48,6 +49,11 @@
   </footer>
 
   <?php include_javascripts() ?>
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en,zh-CN,zh-TW', layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element');
+  }
+  </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

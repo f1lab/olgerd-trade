@@ -22,6 +22,7 @@ class CategoryForm extends BaseCategoryForm
 
     $this->getWidgetSchema()->setLabels([
       'name' => 'Наименование',
+      'parent_id' => 'Родительская категория',
       'image' => 'Изображение',
     ]);
   }
