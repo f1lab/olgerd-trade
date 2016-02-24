@@ -8,7 +8,7 @@
   <div class="btn-group">
   </div>
   <div class="btn-group">
-    <a href="<?php echo url_for('good/index') ?>" class="btn">Назад к списку</a>
+    <a href="<?php echo url_for('good/index?category_id=' . $good->getCategoryId()) ?>" class="btn">Назад к списку</a>
   </div>
 </div>
 

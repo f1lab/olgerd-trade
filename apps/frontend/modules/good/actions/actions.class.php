@@ -12,12 +12,19 @@ class goodActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->goods = Doctrine_Query::create()
+    $query = Doctrine_Query::create()
       ->from('Good g')
       ->leftJoin('g.Images i')
       ->addOrderBy('i.is_default desc')
-      ->execute()
     ;
+
+    if ((int)$request->getParameter('category_id', 0) === 0) {
+      $query->addWhere('g.category_id is null');
+    } else {
+      $query->addWhere('g.category_id = ?', $request->getParameter('category_id'));
+    }
+
+    $this->goods = $query->execute();
   }
 
   public function executeShow(sfWebRequest $request)
