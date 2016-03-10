@@ -25,18 +25,22 @@
           <li><a href="<?php echo url_for('user/index') ?>">Пользователи</a></li>
         </ul>
 
-        <ul class="nav pull-right"><?php if ($sf_user->isAuthenticated()): ?>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <?php echo $sf_user->getUsername() ?>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="/">На сайт</a></li>
-                <li><a href="<?php echo url_for('sf_guard_signout') ?>">Выйти</a></li>
-              </ul>
-          </li>
-        </ul><?php endif ?>
+        <ul class="nav pull-right">
+          <?php if ($sf_user->isAuthenticated()): ?>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <?php echo $sf_user->getUsername() ?>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                  <li><a href="/">На сайт</a></li>
+                  <li><a href="<?php echo url_for('sf_guard_signout') ?>">Выйти</a></li>
+                </ul>
+            </li>
+          <?php else: ?>
+            <li><a href="/">На сайт</a></li>
+          <?php endif ?>
+        </ul>
       </div>
     </div>
   </div>
