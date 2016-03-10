@@ -16,7 +16,7 @@
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container">
-        <a href="<?php echo url_for('@homepage') ?>" class="brand"><?php echo $_SERVER['SERVER_NAME'] ?></a>
+        <a href="<?php echo url_for('@homepage') ?>" class="brand">Админка</a>
 
         <ul class="nav">
           <li><a href="<?php echo url_for('good/index') ?>">Товары</a></li>
@@ -31,8 +31,9 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="<?php echo url_for('sf_guard_signout') ?>">Log out</a></li>
-            </ul>
+                <li><a href="/">На сайт</a></li>
+                <li><a href="<?php echo url_for('sf_guard_signout') ?>">Выйти</a></li>
+              </ul>
           </li>
         </ul><?php endif ?>
       </div>

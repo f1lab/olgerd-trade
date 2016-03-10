@@ -16,23 +16,28 @@
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container">
-        <a href="<?php echo url_for('@homepage') ?>" class="brand"><?php echo $_SERVER['SERVER_NAME'] ?></a>
+        <a href="<?php echo url_for('@homepage') ?>" class="brand" style="padding: 5px 0px;">
+          <img src="/img/logo.png" alt="Ольгерд">
+        </a>
 
-        <ul class="nav">
-          <div id="google_translate_element"></div>
+        <ul class="nav pull-right">
+          <?php if ($sf_user->isAuthenticated()): ?>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <?php echo $sf_user->getUsername() ?>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <?php if ($sf_user->hasCredential('admin panel')): ?>
+                  <li><a href="/backend.php/">В админку</a></li>
+                <?php endif ?>
+                <li><a href="<?php echo url_for('sf_guard_signout') ?>">Выйти</a></li>
+              </ul>
+            </li>
+          <?php else: ?>
+            <li><a href="<?php echo url_for('sf_guard_signin') ?>">Войти / Зарегистрироваться</a></li>
+          <?php endif ?>
         </ul>
-
-        <ul class="nav pull-right"><?php if ($sf_user->isAuthenticated()): ?>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <?php echo $sf_user->getUsername() ?>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="<?php echo url_for('sf_guard_signout') ?>">Log out</a></li>
-            </ul>
-          </li>
-        </ul><?php endif ?>
       </div>
     </div>
   </div>
@@ -44,7 +49,8 @@
   </section>
 
   <footer id="footer">
-    <div class="container" style="padding-top: 7em">
+    <div class="container-fluid" style="padding-top: 2em; padding-bottom: 3em; text-align: right;">
+      <div id="google_translate_element"></div>
     </div>
   </footer>
 
