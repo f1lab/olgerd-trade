@@ -40,27 +40,6 @@ class sfGuardUserForm extends PluginsfGuardUserForm
         'class' => 'chzn-select',
         'data-placeholder' => 'Выберите…',
       )))
-      ->offsetSet('responsible_for_company_list', new sfWidgetFormDoctrineChoice(array(
-        'multiple' => true,
-        'model' => 'sfGuardGroup',
-      ), array(
-        'class' => 'chzn-select',
-        'data-placeholder' => 'Выберите…',
-      )))
-    ;
-
-    $this->getWidgetSchema()->offsetGet('type')->setOption('choices', [
-      'user' => 'Пользователь',
-      'it-admin' => 'IT-администратор',
-    ]);
-
-    $this->getWidgetSchema()->offsetGet('phone')
-      ->setAttribute('pattern', '\+7[0-9]{10}')
-      ->setAttribute('placeholder', '+71234567890')
-    ;
-
-    $this->getWidgetSchema()->offsetGet('categories_list')
-      ->setAttribute('class', 'chzn-select')
     ;
 
     $this->validatorSchema['password'] = new sfValidatorString(array('required' => false, 'max_length' => 32));
@@ -70,16 +49,9 @@ class sfGuardUserForm extends PluginsfGuardUserForm
       'last_name' => 'Фамилия',
       'email_address' => 'Email',
       'permissions_list' => 'Права',
+      'groups_list' => 'Группа',
       'password' => 'Пароль',
-      'groups_list' => 'Компания',
-      'responsible_for_company_list' => 'Отвечает за компанию',
-      'type' => 'Тип пользователя',
-      'phone' => 'Номер телефона',
-      'categories_list' => 'Видит категории',
-      'work_phone' => 'Номер рабочего телефона',
-      'position' => 'Должность',
-      'phone' => 'Телефон',
-      'work_phone' => 'Рабочий телефон',
+      // 'groups_list' => 'Компания',
     ));
   }
 }

@@ -22,6 +22,7 @@
           <li><a href="<?php echo url_for('good/index') ?>">Товары</a></li>
           <li><a href="<?php echo url_for('category/index') ?>">Категории</a></li>
           <li><a href="<?php echo url_for('dimension/index') ?>">Размерности</a></li>
+          <li><a href="<?php echo url_for('user/index') ?>">Пользователи</a></li>
         </ul>
 
         <ul class="nav pull-right"><?php if ($sf_user->isAuthenticated()): ?>
