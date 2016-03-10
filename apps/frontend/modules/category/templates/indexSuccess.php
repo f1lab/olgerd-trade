@@ -4,15 +4,15 @@
   Категории
 </h1>
 
-<ul class="thumbnails"><?php foreach ($categorys as $category): ?>
-  <li class="span2">
+<ul class="thumbnails covers"><?php foreach ($categorys as $category): ?>
+  <li class="span3">
     <div class="thumbnail">
-      <a href="<?php echo url_for('category/show?id=' . $category->getId()) ?>">
-        <img src="/uploads/category/<?php echo $category->getImage() ?: 'default.png' ?>" alt="">
-      </a>
+      <a class="cover"
+        href="<?php echo url_for('category/show?id=' . $category->getId()) ?>"
+        style="background-image: url(/uploads/category/<?php echo $category->getImage() ?: 'default.png' ?>);"></a>
 
       <div class="caption">
-        <h4><?php echo $category ?></h4>
+        <a href="<?php echo url_for('category/show?id=' . $category->getId()) ?>" class="title"><?php echo $category ?></a>
       </div>
     </div>
   </li>

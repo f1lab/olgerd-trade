@@ -2,3 +2,19 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+
+.covers li {
+  width: 250px;
+}
+
+.covers .title {
+  font-size: 1.4em;
+}
+
+.cover {
+  display: block;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+}

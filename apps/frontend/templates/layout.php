@@ -38,7 +38,7 @@
   </div>
 
   <section id="content">
-    <div class="container">
+    <div class="container-fluid">
       <?php echo $sf_content ?>
     </div>
   </section>
