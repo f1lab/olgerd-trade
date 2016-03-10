@@ -26,14 +26,14 @@ class userActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new sfGuardUserForm();
+    $this->form = new sfGuardUserAdminForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new sfGuardUserForm();
+    $this->form = new sfGuardUserAdminForm();
 
     $this->processForm($request, $this->form);
 

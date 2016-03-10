@@ -17,10 +17,6 @@ class sfGuardUserAdminForm extends BasesfGuardUserAdminForm
   {
     unset (
       $this['username']
-      , $this['categories_list']
-      , $this['notify_sms_for_company_list']
-      , $this['notify_email_for_company_list']
-      , $this['observer_for_tickets_list']
     );
 
     $this->widgetSchema->setLabels([
@@ -29,10 +25,6 @@ class sfGuardUserAdminForm extends BasesfGuardUserAdminForm
       'email_address' => 'Email',
       'password' => 'Пароль',
       'password_again' => 'Пароль ещё раз',
-      'phone' => 'Номер телефона',
-      'position' => 'Должность',
-      'phone' => 'Телефон',
-      'work_phone' => 'Рабочий телефон',
     ]);
   }
 }

@@ -16,16 +16,14 @@ class sfGuardUserForm extends PluginsfGuardUserForm
       $this['updated_at'],
       $this['created_at'],
       $this['salt'],
+      $this['password'],
       $this['is_active'],
       $this['is_super_admin'],
       $this['algorithm'],
-      $this['last_login'],
-      $this['responsible_for_tickets_list'],
-      $this['notify_for_company_list']
+      $this['last_login']
     );
 
     $this->getWidgetSchema()
-      ->offsetSet('password', new sfWidgetFormInputPassword())
       ->offsetSet('groups_list', new sfWidgetFormDoctrineChoice(array(
         'multiple' => false,
         'model' => 'sfGuardGroup',
@@ -42,15 +40,12 @@ class sfGuardUserForm extends PluginsfGuardUserForm
       )))
     ;
 
-    $this->validatorSchema['password'] = new sfValidatorString(array('required' => false, 'max_length' => 32));
-
     $this->widgetSchema->setLabels(array(
       'first_name' => 'Имя',
       'last_name' => 'Фамилия',
       'email_address' => 'Email',
       'permissions_list' => 'Права',
       'groups_list' => 'Группа',
-      'password' => 'Пароль',
       // 'groups_list' => 'Компания',
     ));
   }
