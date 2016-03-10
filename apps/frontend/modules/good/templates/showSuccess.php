@@ -2,15 +2,8 @@
 
 <h1 class="page-header">
   <?php echo $good->getName() ?>
+  <a href="<?php echo url_for('category/show?id=' . $good->getTopCategoryId()) ?>" class="btn">Назад к списку</a>
 </h1>
-
-<div class="btn-toolbar">
-  <div class="btn-group">
-  </div>
-  <div class="btn-group">
-    <a href="<?php echo url_for('good/index?category_id=' . $good->getCategoryId()) ?>" class="btn">Назад к списку</a>
-  </div>
-</div>
 
 <ul class="thumbnails"><?php foreach ($good->getImages() as $image): ?>
   <li class="span2">
