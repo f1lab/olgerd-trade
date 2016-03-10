@@ -8,7 +8,7 @@
   <li class="span2">
     <div class="thumbnail">
       <a href="<?php echo url_for('category/show?id=' . $category->getId()) ?>">
-        <img src="/uploads/goods/default.png<?php //echo $category ?>" alt="">
+        <img src="/uploads/category/<?php echo $category->getImage() ?: 'default.png' ?>" alt="">
       </a>
 
       <div class="caption">

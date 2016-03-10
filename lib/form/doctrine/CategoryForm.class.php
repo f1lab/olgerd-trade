@@ -20,10 +20,26 @@ class CategoryForm extends BaseCategoryForm
       , $this['deleted_at']
     );
 
-    $this->getWidgetSchema()->setLabels([
-      'name' => 'Наименование',
-      'parent_id' => 'Родительская категория',
-      'image' => 'Изображение',
-    ]);
+    $this->getWidgetSchema()
+      ->offsetSet('image', new sfWidgetFormInputFileEditable([
+        'file_src' => $this->getObject()->getImage(),
+        'edit_mode' => !$this->getObject()->isNew(),
+        'delete_label' => 'Удалить изображение',
+        'template' => '<img src="/uploads/category/%file%" class="thumbnail" style="width: 150px"><br />%input%<br />%delete% %delete_label%',
+      ]))
+      ->setLabels([
+        'name' => 'Наименование',
+        'parent_id' => 'Родительская категория',
+        'image' => 'Изображение',
+      ])
+    ;
+
+    $this->getValidatorSchema()
+      ->offsetSet('image', new sfValidatorFile(array(
+        'required' => false,
+        'path' => sfConfig::get('sf_upload_dir').'/category'
+      )))
+      ->offsetSet('image_delete', new sfValidatorBoolean())
+    ;
   }
 }
