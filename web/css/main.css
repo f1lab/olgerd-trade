@@ -6,15 +6,29 @@
 
 .covers li {
   width: 250px;
+  float: none;
+  display: inline-block;
+  vertical-align: top;
+}
+.covers.small li {
+  width: 200px;
 }
 
 .covers .title {
   font-size: 1.4em;
 }
+.covers.small .title {
+  font-size: 1.1em;
+}
 
-.cover {
+.covers .cover {
   display: block;
   height: 150px;
   background-position: center;
   background-size: cover;
+  border-radius: 7px;
+  background-repeat: no-repeat;
+}
+.covers.small .cover {
+  height: 130px;
 }
