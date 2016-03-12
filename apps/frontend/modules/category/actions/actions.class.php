@@ -17,6 +17,13 @@ class categoryActions extends sfActions
       ->addWhere('c.parent_id is null')
       ->execute()
     ;
+
+    $this->news = Doctrine_Query::create()
+      ->from('Good g')
+      ->addOrderBy('random() desc')
+      ->limit(6)
+      ->execute()
+    ;
   }
 
   public function executeShow(sfWebRequest $request)
