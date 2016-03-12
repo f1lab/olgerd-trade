@@ -8,3 +8,4 @@ lib/form/doctrine/base/*
 lib/form/doctrine/*Plugin/base/Base*
 lib/filter/doctrine/base/*
 lib/filter/doctrine/*Plugin/base/Base*
+vendor
