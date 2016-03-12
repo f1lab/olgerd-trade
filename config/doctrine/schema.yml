@@ -89,3 +89,38 @@ Category:
       local: parent_id
       foreign: id
       foreignAlias: Children
+
+Order:
+  actAs:
+    - Signable
+    - Timestampable
+    - SoftDelete
+  relations:
+    Positions:
+      class: OrderPosition
+      local: id
+      foreign: order_id
+      type: many
+      foreignType: one
+
+OrderPosition:
+  actAs:
+    - Signable
+    - Timestampable
+    - SoftDelete
+  columns:
+    order_id:
+      type: integer
+      notnull: true
+    good_id:
+      type: integer
+      notnull: true
+    amount:
+      type: integer
+      notnull: true
+  relations:
+    Good:
+      local: good_id
+      foreign: id
+      type: one
+      foreignType: many
