@@ -24,4 +24,12 @@ class Good extends BaseGood
 
     return $result;
   }
+
+  public function toJson()
+  {
+    $array = array_intersect_key($this->toArray(), array_flip(['id', 'name', 'price']));
+    $array['image'] = '' . $this->getImages()->getFirst() ?: 'default.png';
+
+    return json_encode($array);
+  }
 }

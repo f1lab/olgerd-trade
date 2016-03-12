@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="ru-RU">
+<html lang="ru-RU" ng-app="app">
 <head>
   <meta charset="UTF-8">
   <?php include_http_metas() ?>
@@ -41,6 +41,29 @@
       </div>
     </div>
   </div>
+
+  <section id="order" ng-controller="OrderController as order" class="ng-cloak" ng-show="order.$storage.positions.length > 0 && <?php echo (int)$sf_user->isAuthenticated() ?>">
+    <div class="container-fluid">
+      <div class="well">
+        <h3 style="margin-top: 0;">Ваш заказ</h3>
+        <ul class="unstyled positions">
+          <li ng-repeat="position in order.$storage.positions track by position.id">
+            <a ng-href="<?php echo url_for('good/show?id=') ?>{{position.id}}" style="background-image: url(/uploads/goods/{{position.image}});" target="_blank"></a>
+            <div class="title">{{position.name}}</div>
+            <input type="number" ng-model="position.amount" min="0" step="1">
+            <span class="icon icon-remove" ng-click="order.removePosition($index)"></span>
+          </li>
+        </ul>
+
+        <hr>
+        <p>Всего позиций: {{order.getAmount()}}, на сумму: {{order.getSum()}} руб.</p>
+        <form action="<?php echo url_for('order/create') ?>" style="margin-bottom: 0;" method="post">
+          <input type="hidden" name="positions" id="positions-json">
+          <button type="submit" class="btn btn-primary btn-large" ng-click="order.create()">Оформить</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
   <section id="content">
     <div class="container-fluid">

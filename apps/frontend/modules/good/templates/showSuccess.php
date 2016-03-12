@@ -5,6 +5,8 @@
   <a href="<?php echo url_for('category/show?id=' . $good->getTopCategoryId()) ?>" class="btn">Назад к списку</a>
 </h1>
 
+<p><a href="<?php echo url_for('sf_guard_signin') ?>" class="btn btn-large btn-primary" data-add-order-position="<?php echo $good->toJson() ?>" data-authenticated="<?php echo $sf_user->isAuthenticated() ?>">Заказать</a></p>
+
 <ul class="thumbnails"><?php foreach ($good->getImages() as $image): ?>
   <li class="span2">
     <a href="/uploads/goods/<?php echo $image ?>" class="thumbnail" data-lightbox="good">

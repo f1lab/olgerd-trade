@@ -35,3 +35,38 @@
 .covers.small .cover {
   height: 130px;
 }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.positions li > * {
+  display: inline-block;
+  line-height: 64px;
+  margin: 0;
+  margin-right: 1em;
+  vertical-align: middle;
+}
+
+.positions li .title {
+  font-size: 1.2em;
+}
+
+.positions li a {
+  height: 64px;
+  width: 64px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.positions li input {
+  margin-bottom: 2px;
+  width: 3em;
+  line-height: 1em;
+}
+
+.positions li span {
+  cursor: pointer;
+}
