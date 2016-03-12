@@ -95,6 +95,15 @@ Order:
     - Signable
     - Timestampable
     - SoftDelete
+  columns:
+    state:
+      type: enum
+      values:
+        - created
+        - in-progress
+        - discarded
+        - completed
+      default: created
   relations:
     Positions:
       class: OrderPosition

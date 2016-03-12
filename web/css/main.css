@@ -70,3 +70,13 @@
 .positions li span {
   cursor: pointer;
 }
+
+.navbar-frontend .brand {
+  padding: 5px 0px;
+}
+.navbar-frontend .brand img {
+  height: 64px;
+}
+.navbar-frontend .nav > li {
+  margin-top: 15px;
+}

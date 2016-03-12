@@ -13,15 +13,16 @@
 </head>
 
 <body>
-  <div class="navbar">
+  <div class="navbar navbar-frontend">
     <div class="navbar-inner">
       <div class="container">
-        <a href="<?php echo url_for('@homepage') ?>" class="brand" style="padding: 5px 0px;">
+        <a href="<?php echo url_for('@homepage') ?>" class="brand">
           <img src="/img/logo.png" alt="Ольгерд">
         </a>
 
         <ul class="nav pull-right">
           <?php if ($sf_user->isAuthenticated()): ?>
+            <li><a href="<?php echo url_for('order/index') ?>">Мои заказы</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <?php echo $sf_user->getUsername() ?>
@@ -41,6 +42,15 @@
       </div>
     </div>
   </div>
+
+  <?php if ($sf_user->hasFlash('alert') && true == (list($message, $type) = $sf_user->getFlash('alert'))): ?>
+    <div class="container">
+      <div class="alert alert-<?php echo $type ?>">
+        <a href="#" class="close" data-dismiss="alert">×</a>
+        <?php echo $message ?>
+      </div>
+    </div>
+  <?php endif ?>
 
   <section id="order" ng-controller="OrderController as order" class="ng-cloak" ng-show="order.$storage.positions.length > 0 && <?php echo (int)$sf_user->isAuthenticated() ?>">
     <div class="container-fluid">
