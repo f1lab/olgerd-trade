@@ -16,7 +16,7 @@ default:
   stylesheets:
     - bootstrap
     - lightbox.min.css
-    - main
+    - main.css?v=1
 
   javascripts:
     - "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
@@ -24,7 +24,7 @@ default:
     - "https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"
     - bootstrap.min.js
     - lightbox.min.js
-    - main
+    - main.js?v=1
 
   has_layout:     true
   layout:         layout

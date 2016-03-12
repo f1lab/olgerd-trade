@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th>#</th>
+      <th>Пользователь</th>
       <th>Статус</th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <td><a href="<?php echo url_for('order/show?id='.$order->getId()) ?>">
         Заказ №<?php echo $order->getId() ?> от <?php echo $order->getCreatedAt() ?>
       </a></td>
+      <td><?php echo $order->getCreator() ?></td>
       <td><?php echo $order->getReadableState() ?></td>
     </tr>
   <?php endforeach; ?></tbody>

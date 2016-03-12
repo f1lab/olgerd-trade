@@ -20,8 +20,21 @@ class orderActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->order = Doctrine_Core::getTable('Order')->find(array($request->getParameter('id')));
+    $this->order = Doctrine_Query::create()
+      ->from('Order o')
+      ->leftJoin('o.Positions p')
+      ->leftJoin('p.Good')
+      ->addWhere('o.id = ?', $request->getParameter('id'))
+      ->fetchOne()
+    ;
     $this->forward404Unless($this->order);
+
+    $this->amount = array_reduce($this->order->getPositions()->toArray(), function($amount, $position) {
+      return $amount += $position['amount'];
+    }, 0);
+    $this->sum = array_reduce($this->order->getPositions()->toArray(), function($sum, $position) {
+      return $sum += $position['amount'] * $position['Good']['price'];
+    }, 0);
   }
 
   public function executeNew(sfWebRequest $request)

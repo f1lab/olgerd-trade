@@ -14,8 +14,8 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>First name</th>
-      <th>Last name</th>
+      <th>Name</th>
+      <th>Группа</th>
       <th>Email address</th>
       <th>Username</th>
       <th>Is active</th>
@@ -25,8 +25,8 @@
   <tbody><?php foreach ($sf_guard_users as $sf_guard_user): ?>
     <tr>
       <td><a href="<?php echo url_for('user/show?id='.$sf_guard_user->getId()) ?>"><?php echo $sf_guard_user->getId() ?></a></td>
-      <td><?php echo $sf_guard_user->getFirstName() ?></td>
-      <td><?php echo $sf_guard_user->getLastName() ?></td>
+      <td><?php echo $sf_guard_user->getFirstName() ?> <?php echo $sf_guard_user->getLastName() ?></td>
+      <td><?php echo $sf_guard_user->getGroups()->getFirst() ?></td>
       <td><?php echo $sf_guard_user->getEmailAddress() ?></td>
       <td><?php echo $sf_guard_user->getUsername() ?></td>
       <td><span class="icon icon-<?php echo $sf_guard_user->getIsActive() ? 'ok' : 'remove' ?>"></span></td>

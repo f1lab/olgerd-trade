@@ -17,6 +17,8 @@ class sfGuardUserAdminForm extends BasesfGuardUserAdminForm
   {
     unset (
       $this['username']
+      , $this['is_active']
+      , $this['is_super_admin']
     );
 
     $this->widgetSchema->setLabels([

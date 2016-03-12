@@ -16,17 +16,21 @@ class sfGuardUserForm extends PluginsfGuardUserForm
       $this['updated_at'],
       $this['created_at'],
       $this['salt'],
-      $this['password'],
       $this['is_active'],
       $this['is_super_admin'],
       $this['algorithm'],
       $this['last_login']
     );
 
+    if (!$this->getObject()->isNew()) {
+      unset ($this['password']);
+    }
+
     $this->getWidgetSchema()
       ->offsetSet('groups_list', new sfWidgetFormDoctrineChoice(array(
         'multiple' => false,
         'model' => 'sfGuardGroup',
+        'order_by' => ['id', 'desc'],
       ), array(
         'class' => 'chzn-select',
         'data-placeholder' => 'Выберите…',
@@ -44,6 +48,7 @@ class sfGuardUserForm extends PluginsfGuardUserForm
       'first_name' => 'Имя',
       'last_name' => 'Фамилия',
       'email_address' => 'Email',
+      'password' => 'Пароль',
       'permissions_list' => 'Права',
       'groups_list' => 'Группа',
       // 'groups_list' => 'Компания',

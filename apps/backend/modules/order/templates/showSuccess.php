@@ -20,6 +20,10 @@
       <td><?php echo $order->getId() ?></td>
     </tr>
     <tr>
+      <th scope="row" class="span3">Пользователь:</th>
+      <td><?php echo $order->getCreator() ?></td>
+    </tr>
+    <tr>
       <th scope="row" class="span3">Дата создания:</th>
       <td><?php echo $order->getCreatedAt() ?></td>
     </tr>
