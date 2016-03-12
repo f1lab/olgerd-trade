@@ -33,7 +33,7 @@ class Order extends BaseOrder
 
     $mg->sendMessage($domain, [
       'from' => $from,
-      'to' => 'anatoly.pashin@gmail.com',
+      'to' => 'auction@olgerd.ru, customs@olgerd.ru',
       'subject' => 'Оформлен новый заказ',
       'text' => 'Вы можете просмотреть заказ на странице http://trade.olgerd.ru/backend.php/order/show?id=' . $this->getId(),
     ]);
