@@ -33,14 +33,37 @@ class Order extends BaseOrder
 
     $mg->sendMessage($domain, [
       'from' => $from,
-      'to' => 'auction@olgerd.ru, customs@olgerd.ru',
+      'to' => 'anatoly.pashin@gmail.com, auction@olgerd.ru, customs@olgerd.ru',
       'subject' => 'Оформлен новый заказ',
-      'text' => 'Вы можете просмотреть заказ на странице http://trade.olgerd.ru/backend.php/order/show?id=' . $this->getId(),
+      'text' => $this->generateEmailText(),
     ]);
   }
 
   public function getReadableState()
   {
     return self::STATES[$this->getState()];
+  }
+
+  protected function generateEmailText()
+  {
+    $_ = function($expr) {
+      return $expr;
+    };
+
+    $positions = [];
+    foreach ($this->getPositions() as $position) {
+      $positions[] = "{$_($position->getAmount())} × {$_($position->getGood())}";
+    }
+    $positionsList = '  — ' . implode("\n  — ", $positions);
+
+    return <<<EMAIL
+На сайте был оформлен заказ от пользователя {$_($this->getCreator())}.
+
+Состав заказа:
+{$positionsList}
+
+
+Вы можете просмотреть заказ на странице http://trade.olgerd.ru/backend.php/order/show?id={$_($this->getId())}
+EMAIL;
   }
 }
