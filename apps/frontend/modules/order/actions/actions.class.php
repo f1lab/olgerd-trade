@@ -45,6 +45,7 @@ class orderActions extends sfActions
 
     $message = '';
     $messageType = '';
+    $redirect = '';
 
     if ($request->getMethod() === 'post' || !json_last_error() || count($positionsArray) > 0) {
       $positions = array_map(function($position) {
@@ -64,13 +65,15 @@ class orderActions extends sfActions
 
         $message = 'Заказ оформлен';
         $messageType = 'success';
+        $redirect = 'order/show?id=' . $order->getId();
       } catch (Exception $e) {}
     }
 
     $message = $message ?: 'Ошибка обработки заказа, попробуйте ещё раз';
     $messageType = $messageType ?: 'error';
+    $redirect = $redirect ?: 'order/index';
 
     $this->getUser()->setFlash('alert', [$message, $messageType]);
-    $this->redirect('order/index');
+    $this->redirect($redirect);
   }
 }
