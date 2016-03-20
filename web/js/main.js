@@ -25,7 +25,8 @@ angular.module('app', ['ngStorage'])
       , name: position.name
       , price: position.price
       , image: position.image
-      , amount: 1
+      , amount: position.amount
+      , step: position.amount
     };
 
     $timeout(function() {
@@ -42,24 +43,29 @@ angular.module('app', ['ngStorage'])
   }
 
   order.getAmount = function() {
-    var amount = 0;
-    angular.forEach(order.$storage.positions, function(position) {
-      amount += position.amount;
-    })
-    return amount;
+    // var amount = 0;
+    // angular.forEach(order.$storage.positions, function(position) {
+      // amount += position.amount || 0;
+    // })
+    return order.$storage.positions.length;
   }
 
   order.getSum = function() {
     var sum = 0;
     angular.forEach(order.$storage.positions, function(position) {
-      sum += position.price * position.amount;
+      sum += (position.price || 0) * (position.amount || 0);
     })
     return Math.ceil(sum);
   }
 
-  order.create = function() {
-    angular.element('#positions-json').val(JSON.stringify(order.$storage.positions));
-    $localStorage.$reset();
+  order.create = function(form) {
+    if (form.$valid) {
+      angular.element('#positions-json').val(JSON.stringify(order.$storage.positions));
+      $localStorage.$reset();
+      return false;
+    } else {
+      return true;
+    }
   }
 
   var unbind = $rootScope.$on('order.addPosition', function(event, position) {
@@ -88,4 +94,25 @@ angular.module('app', ['ngStorage'])
       });
     }
   }
-});
+})
+
+.directive('step', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      ctrl.$validators.step = function(modelValue, viewValue) {
+        if (ctrl.$isEmpty(modelValue)) {
+          // consider empty models to be invalid
+          return false;
+        }
+
+        return viewValue % +attrs.step === 0;
+
+        // it is invalid
+        return false;
+      };
+    }
+  };
+})
+
+;

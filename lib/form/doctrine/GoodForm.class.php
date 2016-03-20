@@ -33,9 +33,9 @@ class GoodForm extends BaseGoodForm
       ->setLabels([
         'name' => 'Наименование',
         'category_id' => 'Категория',
-        'dimension_id' => 'Размерность',
-        'price' => 'Цена',
-        'amount' => 'Количество',
+        'dimension_id' => 'Единица',
+        'price' => 'Цена за единицу',
+        'amount' => 'Минимальный заказ',
         'introduction' => 'Краткое описание',
         'description' => 'Описание',
       ])

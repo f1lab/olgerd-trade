@@ -33,16 +33,20 @@
       <td><?php echo $good->getName() ?></td>
     </tr>
     <tr>
-      <th scope="row" class="span3">Размерность:</th>
+      <th scope="row" class="span3">Единица:</th>
       <td><?php echo $good->getDimension() ?></td>
     </tr>
     <tr>
-      <th scope="row" class="span3">Цена:</th>
+      <th scope="row" class="span3">Цена за единицу:</th>
       <td><?php echo $good->getPrice() ?></td>
     </tr>
     <tr>
-      <th scope="row" class="span3">Количество:</th>
+      <th scope="row" class="span3">Минимальный заказ:</th>
       <td><?php echo $good->getAmount() ?></td>
+    </tr>
+    <tr>
+      <th scope="row" class="span3">Стоимость минимального заказа:</th>
+      <td><?php echo $good->getMinimalOrderPrice() ?></td>
     </tr>
     <tr>
       <th scope="row" class="span3">Краткое описание:</th>

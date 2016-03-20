@@ -27,9 +27,14 @@ class Good extends BaseGood
 
   public function toJson()
   {
-    $array = array_intersect_key($this->toArray(), array_flip(['id', 'name', 'price']));
+    $array = array_intersect_key($this->toArray(), array_flip(['id', 'name', 'price', 'amount']));
     $array['image'] = '' . $this->getImages()->getFirst() ?: 'default.png';
 
     return json_encode($array);
+  }
+
+  public function getMinimalOrderPrice()
+  {
+    return $this->getAmount() * $this->getPrice();
   }
 }

@@ -10,16 +10,18 @@ Good:
       notnull: true
     category_id:
       type: integer
-    dimension_id:
+
+    dimension_id: # Единица
       type: integer
       notnull: true
-    price:
+    price: # Цена за единицу
       type: decimal
       scale: 2
       notnull: true
-    amount:
+    amount: # Минимальный заказ
       type: integer
       notnull: true
+
     introduction:
       type: clob
       notnull: true
