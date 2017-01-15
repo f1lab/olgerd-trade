@@ -1,31 +1,39 @@
 <?php slot('title', 'Категории') ?>
 
 <h1 class="page-header">
-  Категории
+    Категории
 </h1>
 
 <div class="btn-toolbar">
-  <div class="btn-group">
-    <a href="<?php echo url_for('category/new') ?>" class="btn btn-primary">Добавить</a>
-  </div>
+    <div class="btn-group">
+        <a href="<?php echo url_for('category/new') ?>" class="btn btn-primary">Добавить</a>
+    </div>
 </div>
 
 <table class="table table-condensed table-bordered table-hover">
-  <thead>
+    <thead>
     <tr>
-      <th>Id</th>
-      <th>Наименование</th>
+        <th>Наименование</th>
     </tr>
-  </thead>
-  <tbody><?php foreach ($categorys as $category): ?>
-    <tr>
-      <td><a href="<?php echo url_for('category/edit?id='.$category->getId()) ?>"><?php echo $category->getId() ?></a></td>
-      <td>
-        <?php echo $category->getName() ?>
-        <ul><?php foreach ($category->getChildren() as $child): ?>
-          <li><?php echo $child ?></li>
-        <?php endforeach ?></ul>
-      </td>
-    </tr>
-  <?php endforeach; ?></tbody>
+    </thead>
+    <tbody><?php foreach ($categorys as $category): ?>
+        <tr>
+            <td>
+                <?php include_partial('category', compact('category')) ?>
+            </td>
+        </tr>
+    <?php endforeach; ?></tbody>
 </table>
+
+<style>
+    .actions {
+        display: none;
+    }
+    td:hover > .actions,
+    li:hover > .actions {
+        display: inline-block;
+    }
+    td ul {
+        margin-bottom: .5em;
+    }
+</style>

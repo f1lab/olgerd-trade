@@ -2,7 +2,7 @@
 
 <h1 class="page-header">
   <?php echo $good->getName() ?>
-  <a href="<?php echo url_for('category/show?id=' . $good->getTopCategoryId()) ?>" class="btn">Назад к списку</a>
+  <a href="<?php echo url_for('category/show?id=' . $good->getCategoryId()) ?>" class="btn">Назад к списку</a>
 </h1>
 
 <p><a href="<?php echo url_for('sf_guard_signin') ?>" class="btn btn-large btn-primary" data-add-order-position="<?php echo $good->toJson() ?>" data-authenticated="<?php echo $sf_user->isAuthenticated() ?>">Заказать</a></p>
