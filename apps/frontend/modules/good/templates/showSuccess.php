@@ -18,6 +18,10 @@
 <table class="table table-condensed table-bordered">
   <tbody>
     <tr>
+      <th scope="row" class="span3">Наименование:</th>
+      <td><?php echo $good->getName() ?></td>
+    </tr>
+    <tr>
       <th scope="row" class="span3">Единица:</th>
       <td><?php echo $good->getDimension() ?></td>
     </tr>

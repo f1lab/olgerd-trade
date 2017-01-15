@@ -6,9 +6,9 @@ require dirname(__FILE__) . '/../vendor/autoload.php';
 
 class ProjectConfiguration extends sfProjectConfiguration
 {
-  const MAILGUN_KEY = '';
-  const MAILGUN_DOMAIN = '';
-  const MAILGUN_FROM = '';
+  const MAILGUN_KEY = 'key-8979ce7637d74052059dacc30b0ab30e';
+  const MAILGUN_DOMAIN = 'trade.olgerd.ru';
+  const MAILGUN_FROM = 'postmaster@trade.olgerd.ru';
 
   public function setup()
   {
