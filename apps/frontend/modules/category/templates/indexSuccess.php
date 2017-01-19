@@ -7,7 +7,7 @@
 <?php include_partial('categories', compact('categorys')) ?>
 
 <h2>Новинки</h2>
-<ul class="thumbnails covers small"><?php foreach ($news as $new): ?>
+<ul class="thumbnails covers"><?php foreach ($news as $new): ?>
   <li>
     <div class="thumbnail">
       <a class="cover"

@@ -16,7 +16,7 @@ default:
   stylesheets:
     - bootstrap
     - lightbox.min.css
-    - main.css?v=1
+    - main.css?v=3
 
   javascripts:
     - "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"

@@ -13,7 +13,7 @@
         В этой категории нет товаров.
     </div>
 <?php else: ?>
-    <ul class="thumbnails covers small">
+    <ul class="thumbnails covers">
         <?php foreach ($category->getGoods() as $good): ?>
             <li>
                 <div class="thumbnail">
